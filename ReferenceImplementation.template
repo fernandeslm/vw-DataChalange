@@ -1,0 +1,152 @@
+AWSTemplateFormatVersion: 2010-09-09
+Metadata:
+  'AWS::CloudFormation::Designer':
+    fc60c0a2-4ded-4d9c-b606-f4a7fec453e0:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 510
+        'y': 200
+      z: 0
+      dependson:
+        - b8298fd8-1d7f-40db-87bf-95ae099ba095
+    1533bc3c-e82e-4fe3-a3f8-7a8bca1b3f77:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 410
+        'y': 200
+      z: 0
+      dependson:
+        - fc60c0a2-4ded-4d9c-b606-f4a7fec453e0
+    e49e72ca-cbaf-44a2-8896-a5558b966acb:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 420
+        'y': 90
+      z: 0
+    456a1380-1900-4179-9cbc-9a2c7468ed36:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 300
+        'y': 200
+      z: 0
+      dependson:
+        - 1533bc3c-e82e-4fe3-a3f8-7a8bca1b3f77
+    82bc0c3e-c809-47c6-a9a1-a39a4aa1a8cf:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 710
+        'y': 200
+      z: 0
+      dependson:
+        - e4595524-75c9-4b1f-ae31-dd5adc903986
+    74ef3635-6a19-42db-9919-4c5db760a259:
+      source:
+        id: 456a1380-1900-4179-9cbc-9a2c7468ed36
+      target:
+        id: 1533bc3c-e82e-4fe3-a3f8-7a8bca1b3f77
+      z: 1
+    8a04d2af-ff2e-4198-a6b4-7053f018ac7c:
+      source:
+        id: 1533bc3c-e82e-4fe3-a3f8-7a8bca1b3f77
+      target:
+        id: fc60c0a2-4ded-4d9c-b606-f4a7fec453e0
+      z: 2
+    b8298fd8-1d7f-40db-87bf-95ae099ba095:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 610
+        'y': 200
+      z: 0
+      dependson:
+        - 82bc0c3e-c809-47c6-a9a1-a39a4aa1a8cf
+    f3c9e721-a47f-49d1-851e-7306e2387bb8:
+      source:
+        id: fc60c0a2-4ded-4d9c-b606-f4a7fec453e0
+      target:
+        id: b8298fd8-1d7f-40db-87bf-95ae099ba095
+      z: 3
+    4ee1ba54-ffee-4849-8ed3-9b7a0f6edd5a:
+      source:
+        id: b8298fd8-1d7f-40db-87bf-95ae099ba095
+      target:
+        id: 82bc0c3e-c809-47c6-a9a1-a39a4aa1a8cf
+      z: 4
+    e4595524-75c9-4b1f-ae31-dd5adc903986:
+      size:
+        width: 60
+        height: 60
+      position:
+        x: 820
+        'y': 200
+      z: 0
+    1135a0e1-56d6-4f54-9d70-a7d6e03bad22:
+      source:
+        id: 82bc0c3e-c809-47c6-a9a1-a39a4aa1a8cf
+      target:
+        id: e4595524-75c9-4b1f-ae31-dd5adc903986
+      z: 5
+Resources:
+  GD1T1M9:
+    Type: 'AWS::Glue::Database'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: fc60c0a2-4ded-4d9c-b606-f4a7fec453e0
+    DependsOn:
+      - GT2X3X6
+  GC1Y07R:
+    Type: 'AWS::Glue::Crawler'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 1533bc3c-e82e-4fe3-a3f8-7a8bca1b3f77
+    DependsOn:
+      - GD1T1M9
+  IAMRS4JJ:
+    Type: 'AWS::IAM::Role'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: e49e72ca-cbaf-44a2-8896-a5558b966acb
+  S3B39RJX:
+    Type: 'AWS::S3::Bucket'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 456a1380-1900-4179-9cbc-9a2c7468ed36
+    DependsOn:
+      - GC1Y07R
+  GJ2TP5O:
+    Type: 'AWS::Glue::Job'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: 82bc0c3e-c809-47c6-a9a1-a39a4aa1a8cf
+    DependsOn:
+      - GTEVNE
+  GT2X3X6:
+    Type: 'AWS::Glue::Table'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: b8298fd8-1d7f-40db-87bf-95ae099ba095
+    DependsOn:
+      - GJ2TP5O
+  GTEVNE:
+    Type: 'AWS::Glue::Table'
+    Properties: {}
+    Metadata:
+      'AWS::CloudFormation::Designer':
+        id: e4595524-75c9-4b1f-ae31-dd5adc903986
